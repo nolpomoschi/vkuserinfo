@@ -5,6 +5,7 @@ import com.example.vkuserinfo.dto.UserInfoRequest;
 import com.example.vkuserinfo.dto.UserInfoResponse;
 import com.example.vkuserinfo.exception.VkApiException;
 import com.example.vkuserinfo.service.VkApiService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.apache.camel.Header;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class VkApiController {
     private VkApiService vkApiService;
 
     @PostMapping("/user-info")
-    public ResponseEntity<?> getUserInfo(@Header("vk_service_token") String serviceToken, @RequestBody UserInfoRequest userInfoRequest) {
+    public ResponseEntity<?> getUserInfo(@Header("vk_service_token") String serviceToken, @Valid @RequestBody UserInfoRequest userInfoRequest) {
 
         try {
 

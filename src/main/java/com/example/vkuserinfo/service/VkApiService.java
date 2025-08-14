@@ -4,6 +4,7 @@ import com.example.vkuserinfo.dto.UserInfoRequest;
 import com.example.vkuserinfo.dto.UserInfoResponse;
 import com.example.vkuserinfo.exception.VkApiException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -19,6 +20,7 @@ public class VkApiService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Cacheable(value = "userInfo", key = "{#request.user_id, #request.group_id}")
     public UserInfoResponse getUserInfo(String serviceToken, UserInfoRequest userInfoRequest) throws VkApiException{
 
         Map<String, Object> userInfo = getUserData(serviceToken, userInfoRequest.getUser_id());
