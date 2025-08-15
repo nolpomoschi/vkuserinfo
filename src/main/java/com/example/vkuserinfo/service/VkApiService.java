@@ -32,7 +32,7 @@ public class VkApiService {
         UserInfoResponse response = new UserInfoResponse();
         response.setLast_name((String) userInfo.get("last_name"));
         response.setFirst_name((String) userInfo.get("first_name"));
-        response.setNickname((String) userInfo.get("middle_name"));
+        response.setNickname((String) userInfo.get("nickname"));
         response.setMember(isMember);
 
         return response;

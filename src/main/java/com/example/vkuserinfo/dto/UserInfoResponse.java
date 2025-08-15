@@ -1,12 +1,8 @@
 package com.example.vkuserinfo.dto;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 @Data
-@Getter
-@Setter
 public class UserInfoResponse {
 
     private String first_name;
